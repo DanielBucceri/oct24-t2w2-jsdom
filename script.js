@@ -10,9 +10,9 @@ const data = [
 function addCostumeToList(costume) {
   // // create a list item for each costume asme as below
     // ul.innerHTML += `<li>${costume}<button>Remove ${costume}</button></li>`;
-
     
-    // createa  <li>  using costime
+    const ul = document.querySelector('#costumeContainer ul')
+    // create a  <li>  using costume
     const newLi = document.createElement('li');
     newLi.innerText = costume;
     //create  a button for removing the item
@@ -35,7 +35,6 @@ function addCostumeToList(costume) {
     ul.appendChild(newLi); 
 }
 
-const ul = document.querySelector('ul');
 //iterate over data 
 for (costume of data){
     addCostumeToList(costume);
@@ -43,12 +42,12 @@ for (costume of data){
 }
 
 
-document.querySelector('#newcostume').addEventListener('submit', (event) => {
+document.querySelector('#newCostumeForm').addEventListener('submit', (event) => {
     event.preventDefault();
     
-    const newCostumeInput = document.querySelector('#newCostumeForm input').value;
+    const newCostumeInput = document.querySelector('#newCostumeForm input');
     const costume = newCostumeInput.value;
-    //add the new costime to the list
+    //add the new costme to the list
     addCostumeToList(costume)
     // clear the input field
     newCostumeInput.value = '';
